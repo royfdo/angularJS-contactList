@@ -1,0 +1,13 @@
+<table>
+<tr><td> <input type="text" ng-model="search" ng-keyup="searchByName()"></td><td> <input type="button" value="search" ng-click="searchByName()" > </td> </tr>
+</table>
+<table border="1" cellspacing="0" >
+<tr>
+<th><a href ng-click="orderBy('name')"> Name</a></th><th><a href ng-click="orderBy('mobile')">Mobile</a></th><th><a href ng-click="orderBy('email')">Email</a></th><td><input type="button" value="New Contact" ng-click="go('/newContact/new')"> </td>
+</tr>
+<tr ng-repeat="contact in contacts | orderBy:predicate:reverse">
+	<td>{{contact.name}}</td><td>{{contact.mobile}}</td><td>{{contact.email}}</td><td><input type="button" value="Edit" id="edit_{{contact.id}}" ng-click="edit(contact.id)"> </td>
+</tr>
+
+</table>
+
